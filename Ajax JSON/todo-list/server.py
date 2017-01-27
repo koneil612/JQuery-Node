@@ -19,5 +19,19 @@ def add_task():
     result = db.insert('task', description=description)
     return jsonify(result)
 
+@app.route('/mark_task', methods=['POST'])
+def mark_task():
+    id = request.form.get('id')
+    done = request.form.get('done')
+    result = db.update('task', id=id, done=done)
+    return jsonify(result)
+
+@app.route('/remove_completed', methods=['POST'])
+def remove_completed():
+    id = request.form.get('id')
+    result = db.delete('task', id=id)
+    return jsonify(result)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
