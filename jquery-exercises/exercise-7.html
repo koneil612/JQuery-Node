@@ -20,10 +20,11 @@
     $(document).ready(function () {
         //  $("#remove-button").hide();
 
-        $("#todo-list li").append(' '+'<input type="checkbox" id="checked"/>' + '<input type="button" id="remove-button" value="X" />');
+        // $("#todo-list").append('<li>'+'<input type="checkbox" id="checked"/>' + '<input type="button" id="remove-button" value="X" />' + '</li>');
 
-        $('#add-button').click(function() {
-            $("#todo-list").append("<li>" + $("#description").val() +' '+'<input type="checkbox" id="checked"/>' +  ' '+'<input type="button" id="remove-button" value="X" />'+ "</li>");
+        $('#add-button').click(function(event) {
+            event.preventDefault();
+            $("#todo-list").append("<li>" + $("#description").val() +' '+'<input type="checkbox" id="checked"/>' +  ' '+'<input type="button" id="remove-button" value="X" />' + "</li>");
        });
 
        $('#todo-list').on('click', '#remove-button', function(){
@@ -37,7 +38,7 @@
     //        $(this).closest('li').text($("#description"));
        });
 
-      });
+
     // });
     </script>
     <style>
