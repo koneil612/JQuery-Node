@@ -34,12 +34,20 @@
            $(this).closest('li').wrap("<strike>");
        });
 
-    //    $('#todo-list').on('dblclick', 'val()', function(){
-    //        $(this).closest('li').text($("#description"));
-       });
+       var oriVal;
+       $("#todo-list").on('dblclick', 'li', function () {
+        oriVal = $(this).text();
+        $(this).text("");
+        $("<input type='text'>").appendTo(this).focus();
+        });
+        $("#todo-list").on('focusout', 'li > input', function () {
+        var $this = $(this);
+        $this.parent().text($this.val() || oriVal);
+        $this.remove();
+        });
 
+        });
 
-    // });
     </script>
     <style>
     #wrapper {
