@@ -13,7 +13,8 @@
     $(document).ready(function () {
         $('a').click(function(event){
             event.preventDefault();
-            $( "<iframe>" ).attr('href');
+            var url = $(this).attr('href');
+            $( "#iframe" ).attr('src', url );
         });
     });
     </script>
@@ -24,6 +25,6 @@
       <li><a href="http://duckduckgo.com">DuckDuckGo</a></li>
       <li><a href="http://css-tricks.com">CSS Tricks</a></li>
     </ul>
-    <iframe id="iframe" src="#" width="800" height="480"></iframe>
+    <iframe id="iframe" width="800" height="480"></iframe>
   </body>
 </html>
